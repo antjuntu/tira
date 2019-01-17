@@ -11,15 +11,22 @@ public class Piirileikki {
         
         int k = 0;
         boolean nextOut = true; // == false if skip next
-        while (counter > 0) {
-           
-            counter--;
-            if (counter == 0) {
-                return a[k];
+        while (true) {
+            k++;
+            k %= n;
+            if (a[k] == 0) {
+                continue;
             }
-            a[k] = 0;
+            if (nextOut) {
+                counter--;
+                if (counter == 0) {
+                    return a[k];
+                }
+                a[k] = 0;
+                nextOut = false;
+            } else {
+                nextOut = true;
+            }
         }
-        
-        return 0;
     }
 }
