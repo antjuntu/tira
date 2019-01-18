@@ -10,7 +10,7 @@ public class Piirileikki {
         }
         
         int k = 0;
-        boolean nextOut = true; // == false if skip next
+        boolean nextOut = true; // == false, if skip next
         while (true) {
             k++;
             k %= n;
