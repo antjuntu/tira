@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Main {
 
+    static int counter = 0;
+    
     public static int rekursio(File f, String s) throws IOException {
         //toteuta minut
         return 0;
@@ -14,16 +16,22 @@ public class Main {
         return rekursio(kansio, search);
     }
     
-    public static void tulosta(File f) {
+    public static void tulosta(File f, String search) {
         if (f.isFile()) {
+            if (f.getName().contains(search)) {
+                counter++;
+            }
             System.out.println(f.getName());
             return;
         }
         for (File file : f.listFiles()) {
             if (file.isDirectory()) {
-                System.out.println("Dir: " + file.getName());
+                if (f.getName().contains(search)) {
+                    counter++;
+                }
+                System.out.println(file.getName());
             }
-            tulosta(file);
+            tulosta(file, search);
         }
     }
     
@@ -34,7 +42,8 @@ public class Main {
         System.out.println(laske("rekursio")); // 1
         
         File kansio = new File("test" + File.separator + "mockfiles");
-        tulosta(kansio);
+        tulosta(kansio, "txt");
+        System.out.println("counter: " + counter);
         
     }
 }
