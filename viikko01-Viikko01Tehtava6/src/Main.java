@@ -3,12 +3,13 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-
-    static int counter = 0;
+    
+    static int counter;
     
     public static int rekursio(File f, String s) throws IOException {
-        //toteuta minut
-        return 0;
+        counter = 0;
+        tulosta(f, s);
+        return counter;
     }
 
     public static int laske(String search) throws IOException { //ÄLÄ KOSKE TÄHÄN METODIIN
@@ -20,18 +21,19 @@ public class Main {
         if (f.isFile()) {
             if (f.getName().contains(search)) {
                 counter++;
+                
             }
-            System.out.println(f.getName());
-            return;
-        }
-        for (File file : f.listFiles()) {
-            if (file.isDirectory()) {
-                if (f.getName().contains(search)) {
-                    counter++;
+            //System.out.println(f.getName());
+        } else {
+            for (File file : f.listFiles()) {
+                if (file.isDirectory()) {
+                    if (file.getName().contains(search)) {
+                        counter++;
+                    }
+                    //System.out.println(file.getName());
                 }
-                System.out.println(file.getName());
+                tulosta(file, search);
             }
-            tulosta(file, search);
         }
     }
     
@@ -40,10 +42,10 @@ public class Main {
         System.out.println(laske("txt")); // 11
         System.out.println(laske("asd")); // 0
         System.out.println(laske("rekursio")); // 1
+        System.out.println(laske("a")); // 6
         
-        File kansio = new File("test" + File.separator + "mockfiles");
-        tulosta(kansio, "txt");
-        System.out.println("counter: " + counter);
+//        File kansio = new File("test" + File.separator + "mockfiles");
+//        System.out.println(tulosta(kansio, "rekursio"));
         
     }
 }
