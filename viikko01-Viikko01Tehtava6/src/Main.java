@@ -20,8 +20,7 @@ public class Main {
     public static void tulosta(File f, String search) {
         if (f.isFile()) {
             if (f.getName().contains(search)) {
-                counter++;
-                
+                counter++; 
             }
             //System.out.println(f.getName());
         } else {
