@@ -9,27 +9,20 @@ public class Main {
         int yla = 0; // välin yläraja
         long summa = 0; // tutkittavan välin summa
         //  0  1  2  3  4  5  6  7  8  9
-        // {1, 3, 1, 2}
+        // {1, 3, 1, 2, 3}
         while (ala < taulukko.length && yla < taulukko.length) {
-            if (summa < k) {
-                summa += taulukko[yla];
-                // tarkista meneekö summa yli
-                if (summa == k) {
-                    lkm++;
-                    summa -= taulukko[ala];
-                    ala++;
-                }
-                yla++;
-            } else if (summa > k) {
-                // vähennä kunnes summa <= k
+            if (summa > k) {
                 summa -= taulukko[ala];
                 ala++;
-                //yla++; // ei kasvateta jos summa > k
-            } else if (summa == k) {
+                continue;
+            }
+            if (summa == k) {
                 lkm++;
                 summa -= taulukko[ala];
                 ala++;
-                //yla++;
+            } else {
+                summa += taulukko[yla];
+                yla++;
             }
         }
         return lkm;
@@ -48,3 +41,26 @@ public class Main {
         
     }
 }
+
+//            if (summa < k) {
+//                summa += taulukko[yla];
+//                // tarkista meneekö summa yli
+////                if (summa == k) {
+////                    lkm++;
+////                    summa -= taulukko[ala];
+////                    ala++;
+////                }
+//                yla++;
+//            } else if (summa > k) {
+//                // vähennä kunnes summa <= k
+//                summa -= taulukko[ala];
+//                ala++;
+//                //yla++; // ei kasvateta jos summa > k
+//            }
+//                
+//            if (summa == k) {
+//                lkm++;
+//                summa -= taulukko[ala];
+//                ala++;
+//                //yla++;
+//            }
