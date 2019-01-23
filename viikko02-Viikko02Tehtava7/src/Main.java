@@ -9,7 +9,7 @@ public class Main {
         int yla = 0; // välin yläraja
         long summa = 0; // tutkittavan välin summa
         //  0  1  2  3  4  5  6  7  8  9
-        // {5, 2, 4, 2, 9, 1, 9, 1, 1, 2}
+        // {1, 3, 1, 2}
         while (ala < taulukko.length && yla < taulukko.length) {
             if (summa < k) {
                 summa += taulukko[yla];
@@ -29,7 +29,7 @@ public class Main {
                 lkm++;
                 summa -= taulukko[ala];
                 ala++;
-                yla++;
+                //yla++;
             }
         }
         return lkm;
