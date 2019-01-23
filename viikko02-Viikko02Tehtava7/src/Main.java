@@ -36,13 +36,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(valienMaara(new long[]{1, 1, 1, 1}, 4)); // 1
-        System.out.println(valienMaara(new long[]{1, 1, 1, 1}, 1)); // 4
-        System.out.println(valienMaara(new long[]{1, 2, 3, 4}, 3)); // 2
-        System.out.println(valienMaara(new long[]{1, 3, 1, 2}, 3)); // 2
+//        System.out.println(valienMaara(new long[]{1, 1, 1, 1}, 4)); // 1
+//        System.out.println(valienMaara(new long[]{1, 1, 1, 1}, 1)); // 4
+//        System.out.println(valienMaara(new long[]{1, 2, 3, 4}, 3)); // 2
+//        System.out.println(valienMaara(new long[]{1, 3, 1, 2}, 3)); // 2
+        // Ei löydä viimeistä yhden pituista väliä!!!!!
+        System.out.println(valienMaara(new long[]{1, 3, 1, 2, 3}, 3)); // 3
         //
-        System.out.println(valienMaara(new long[]{5, 2, 4, 2, 9, 1, 9, 1, 1, 2, 3, 9, 2, 5, 5, 5, 9, 9, 3, 5}, 40)); // 1
-        System.out.println(valienMaara(new long[]{5, 2, 4, 2, 9, 1, 9, 1, 1, 2}, 11)); // 4
+//        System.out.println(valienMaara(new long[]{5, 2, 4, 2, 9, 1, 9, 1, 1, 2, 3, 9, 2, 5, 5, 5, 9, 9, 3, 5}, 40)); // 1
+//        System.out.println(valienMaara(new long[]{5, 2, 4, 2, 9, 1, 9, 1, 1, 2}, 11)); // 4
         
     }
 }
