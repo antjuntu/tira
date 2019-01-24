@@ -64,6 +64,7 @@ deps-jar:
 -compile-depend:
 
 -do-compile:
+    [javac] Compiling 1 source file to C:\Users\antju\tira\hy-tira-k19\viikko02-Viikko02Tehtava7\build\classes
 
 -post-compile:
 

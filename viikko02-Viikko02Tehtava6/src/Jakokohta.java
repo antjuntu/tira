@@ -8,8 +8,8 @@ public class Jakokohta {
         vasenMax = new int[taulukko.length];
         oikeaMin = new int[taulukko.length];
         
-        System.out.println("Taulukko");
-        tulosta(taulukko);
+        //System.out.println("Taulukko");
+        //tulosta(taulukko);
         
         vasenMax[0] = taulukko[0];
         for (int i = 1; i < taulukko.length; i++) {
@@ -20,8 +20,8 @@ public class Jakokohta {
             }
         }
         
-        System.out.println("vasenMax:");
-        tulosta(vasenMax);
+        //System.out.println("vasenMax:");
+        //tulosta(vasenMax);
         
         oikeaMin[taulukko.length - 1] = taulukko[taulukko.length - 1];
         for (int i = taulukko.length - 2; i >= 0; i--) {
@@ -32,9 +32,9 @@ public class Jakokohta {
             }
         }
         
-        System.out.println("oikeaMin:");
-        tulosta(oikeaMin);
-        System.out.println("---------------------------------------------");
+        //System.out.println("oikeaMin:");
+        //tulosta(oikeaMin);
+        //System.out.println("---------------------------------------------");
         
         // Ehto jakokohdassa
         // vasenMax[i] < oikeaMin[i + 1] i = 0; 1, 2,..., taulukko.length - 2
@@ -46,10 +46,10 @@ public class Jakokohta {
         return lkm;
     }    
     
-    private static void tulosta(int[] a) {
-        for (int i = 0; i < a.length; i++)
-            System.out.print(a[i] + " ");
-        System.out.println("");
-    }
+//    private static void tulosta(int[] a) {
+//        for (int i = 0; i < a.length; i++)
+//            System.out.print(a[i] + " ");
+//        System.out.println("");
+//    }
   
 }

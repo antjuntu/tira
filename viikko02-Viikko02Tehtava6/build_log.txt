@@ -105,14 +105,12 @@ deps-jar:
 compile:
 
 -pre-pre-compile-test:
-    [mkdir] Created dir: C:\Users\antju\tira\hy-tira-k19\viikko02-Viikko02Tehtava6\build\test\classes
 
 -pre-compile-test:
 
 -compile-test-depend:
 
 -do-compile-test:
-    [javac] Compiling 1 source file to C:\Users\antju\tira\hy-tira-k19\viikko02-Viikko02Tehtava6\build\test\classes
 
 -post-compile-test:
 
