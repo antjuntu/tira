@@ -23,7 +23,42 @@
 
 -init-macrodef-javac:
 
+-init-macrodef-test-impl:
+
+-init-macrodef-junit-init:
+
+-init-macrodef-junit-single:
+
+-init-test-properties:
+
+-init-macrodef-junit-batch:
+
 -init-macrodef-junit:
+
+-init-macrodef-junit-impl:
+Trying to override old definition of task http://www.netbeans.org/ns/j2se-project/3:test-impl
+
+-init-macrodef-testng:
+
+-init-macrodef-testng-impl:
+
+-init-macrodef-test:
+
+-init-macrodef-junit-debug:
+
+-init-macrodef-junit-debug-batch:
+
+-init-macrodef-junit-debug-impl:
+
+-init-macrodef-test-debug-junit:
+
+-init-macrodef-testng-debug:
+
+-init-macrodef-testng-debug-impl:
+
+-init-macrodef-test-debug-testng:
+
+-init-macrodef-test-debug:
 
 -init-debug-args:
 
@@ -42,12 +77,12 @@
 init:
 
 -deps-jar-init:
-   [delete] Deleting: C:\Users\antju\tira\hy-tira-k19\viikko02-Viikko02Tehtava7\build\built-jar.properties
+   [delete] Deleting: C:\Users\antju\tira\hy-tira-k19\viikko03-Viikko03Tehtava4\build\built-jar.properties
 
 deps-jar:
 
 -warn-already-built-jar:
-[propertyfile] Updating property file: C:\Users\antju\tira\hy-tira-k19\viikko02-Viikko02Tehtava7\build\built-jar.properties
+[propertyfile] Updating property file: C:\Users\antju\tira\hy-tira-k19\viikko03-Viikko03Tehtava4\build\built-jar.properties
 
 -check-automatic-build:
 

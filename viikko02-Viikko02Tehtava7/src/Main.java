@@ -10,7 +10,7 @@ public class Main {
         long summa = 0; // tutkittavan välin summa
         
         while (ala < taulukko.length && yla < taulukko.length) {
-            if (summa < k && yla < taulukko.length) {
+            if (summa < k) {
                 summa += taulukko[yla];
                 yla++;
             }
