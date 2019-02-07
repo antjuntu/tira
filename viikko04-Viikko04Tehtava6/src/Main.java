@@ -5,18 +5,37 @@ public class Main {
 
     static class Laskuri {
 
-
+        int aika;
+        // enqueue -> addLast(), dequeue -> removeFirst()
+        // Jonoon talletetaan aika i jonotuksen alkaessa, siis addLast(i)
+        ArrayDeque<Integer> jono;
+        // veloitukset[i] veloitukset yhteensä ajanhetkeen i mennessä.
+        // veloitukset[i} = veloitukset[0] + ... + veloitukset[i]
+        ArrayList<Long> veloitukset;
+        
         Laskuri() {
+            this.aika = 0;
+            this.jono = new ArrayDeque<>();
+            this.veloitukset = new ArrayList<>();
+            veloitukset.add(0, 0l);
         }
 
         void lisaaJonoon() {
+            aika++;
+            jono.addLast(aika);
+            veloitukset.add(aika, veloitukset.get(aika - 1));
         }
 
         void veloita(long x) {
+            aika++;
+            veloitukset.add(aika, x + veloitukset.get(aika - 1));
         }
 
         long paastaSisaan() {
-            return 0l;
+            if (jono.size() == 0) {
+                return 0;
+            }
+            return veloitukset.get(aika) - veloitukset.get(jono.removeFirst());
         }
     }
 
