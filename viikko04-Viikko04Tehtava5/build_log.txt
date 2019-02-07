@@ -77,12 +77,12 @@ Trying to override old definition of task http://www.netbeans.org/ns/j2se-projec
 init:
 
 -deps-jar-init:
-   [delete] Deleting: C:\Users\antju\tira\hy-tira-k19\viikko04-Viikko04Tehtava4\build\built-jar.properties
+   [delete] Deleting: C:\Users\antju\tira\hy-tira-k19\viikko04-Viikko04Tehtava5\build\built-jar.properties
 
 deps-jar:
 
 -warn-already-built-jar:
-[propertyfile] Updating property file: C:\Users\antju\tira\hy-tira-k19\viikko04-Viikko04Tehtava4\build\built-jar.properties
+[propertyfile] Updating property file: C:\Users\antju\tira\hy-tira-k19\viikko04-Viikko04Tehtava5\build\built-jar.properties
 
 -check-automatic-build:
 
