@@ -1,6 +1,0 @@
-
-BUILD FAILED
-C:\Users\antju\tira\hy-tira-k19\viikko05-Viikko05Tehtava5\nbproject\build-impl.xml:930: The following error occurred while executing this line:
-C:\Users\antju\tira\hy-tira-k19\viikko05-Viikko05Tehtava5\nbproject\build-impl.xml:270: Compile failed; see the compiler error output for details.
-
-Total time: 6 seconds
