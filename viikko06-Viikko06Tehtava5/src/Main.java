@@ -4,7 +4,19 @@ import java.util.*;
 public class Main {
 
     public static int minimi(Puu puu) {
-        return 0;
+        return min(puu);
+    }
+    
+    static int min(Puu puu) {
+        if (puu == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        int a = min(puu.vasen);
+        int b = min(puu.oikea);
+        int min = a < b ? a : b;
+        return min < puu.arvo ? min : puu.arvo;
+        
     }
 
     public static void main(String[] args) {
