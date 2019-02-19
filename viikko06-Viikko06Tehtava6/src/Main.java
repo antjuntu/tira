@@ -3,11 +3,27 @@ import java.util.*;
 
 public class Main {
 
-
+    static boolean onAvlPuu;
+    
     public static boolean onkoAVL(Puu puu) {
-        return false;
+        onAvlPuu = true;
+        korkeus(puu);
+        return onAvlPuu;
     }
 
+    static int korkeus(Puu puu) {
+        if (puu == null) {
+            return -1;
+        }
+        int vasenKorkeus = korkeus(puu.vasen);
+        int oikeaKorkeus = korkeus(puu.oikea);
+        int korkeus = Math.abs(vasenKorkeus - oikeaKorkeus);
+        if (korkeus > 1) {
+            onAvlPuu = false;
+        }
+        return Math.max(vasenKorkeus, oikeaKorkeus) + 1;
+    }
+    
     public static void main(String[] args) {
         Puu puu1 = new Puu(0,
                 new Puu(0,
