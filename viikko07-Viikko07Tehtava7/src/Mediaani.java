@@ -2,32 +2,47 @@ import java.util.*;
 
 public class Mediaani {
     
-    PriorityQueue<Integer> keko = new PriorityQueue<>();
+    // Maksimikeko, jossa mediaania pienemmät tai yhtäsuuret
+    PriorityQueue<Integer> pienemmat;
+    // Minimikeko, jossa mediaania isommat
+    PriorityQueue<Integer> suuremmat;
+    int mediaani;
+    int n;
     
     public Mediaani() {
-        keko = new PriorityQueue<>();
+        pienemmat = new PriorityQueue<>(20, Collections.reverseOrder());
+        suuremmat = new PriorityQueue<>();
+        n = 0;
+        mediaani = 0;
     }
     
     public void lisaaLuku(int x) {
-        keko.add(x);
+        if (n == 0) {
+            mediaani = x;
+            n++;
+            return;
+        }
+        if (n % 2 == 1) {
+            if (x <= mediaani) {
+                pienemmat.add(x);
+                suuremmat.add(mediaani);
+                mediaani = pienemmat.poll();
+            } else {
+                suuremmat.add(x);
+            }
+        } else { // n % 2 == 0
+            if (x <= mediaani) {
+                pienemmat.add(x);
+            } else {
+                suuremmat.add(x);
+                pienemmat.add(mediaani);
+                mediaani = suuremmat.poll();
+            }
+        }
+        n++;
     }
     
     public int mediaani() {
-        int n = keko.size() / 2;
-        if (keko.size() % 2 == 1) {
-            n++;
-        }
-        int[] array = new int[n];
-        
-        int i = 0;
-        while (i < n) {
-            array[i] = keko.poll();
-            i++;
-        }
-        int med = array[--i];
-        for (int j = array.length - 1; j >= 0; j--) {
-            keko.add(array[j]);
-        }
-        return med;
+        return mediaani;
     }
 }
