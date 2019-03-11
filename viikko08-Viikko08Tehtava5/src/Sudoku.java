@@ -25,7 +25,14 @@ public class Sudoku {
             }
         }
         
-        haku(sudoku, 0, 0);
+        
+        System.out.println("vaaka");
+        tulosta(vaaka);
+        System.out.println("pysty");
+        tulosta(pysty);
+        System.out.println("alue");
+        tulosta(alue);
+        //haku(sudoku, 0, 0);
       
     }
     
@@ -46,9 +53,9 @@ public class Sudoku {
                     alue[alueIndeksi(rivi, sarake)][i] = true;
                     sudoku[rivi][sarake] = i;
                     haku(sudoku, rivi, sarake + 1);
-                    //vaaka[rivi][i] = false;
-                    //pysty[sarake][i] = false;
-                    //alue[alueIndeksi(rivi, sarake)][i] = false;
+                    vaaka[rivi][i] = false;
+                    pysty[sarake][i] = false;
+                    alue[alueIndeksi(rivi, sarake)][i] = false;
                 }
             }
         }
@@ -58,7 +65,10 @@ public class Sudoku {
     static void tulosta(boolean [][] a) {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N+1; j++) {
-                System.out.print(a[i][j] + " ");
+                //System.out.print(a[i][j] + " ");
+                if (a[i][j]) {
+                    System.out.print(j + " ");
+                }
             }
             System.out.println();
         }
