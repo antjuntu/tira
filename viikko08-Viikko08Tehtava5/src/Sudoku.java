@@ -32,10 +32,11 @@ public class Sudoku {
         tulosta(pysty);
         System.out.println("alue");
         tulosta(alue);
-        //haku(sudoku, 0, 0);
+        haku(sudoku, 0, 0);
       
     }
     
+    // talleta sudoku-taulukon vapaat indeksit aputaulukkoon
     static void haku(int[][] sudoku, int rivi, int sarake) {
         if (rivi == N) {
             // ratkaisu löytyi
