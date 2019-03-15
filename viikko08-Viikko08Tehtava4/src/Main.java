@@ -3,9 +3,38 @@ import java.util.*;
 
 public class Main {
 
+    static int[][] etaisyys;
+    static int n;
 
     public static int kierros(int[][] et) {
-        return 0;
+        etaisyys = et;
+        n = etaisyys[0].length;
+        
+        int[] reitti = new int[n + 1];
+        //reitti[0] = 0;
+        //reitti[n] = 0;
+        
+        boolean[] mukana = new boolean[n];
+        mukana[0] = true;
+        
+        return laske(reitti, mukana, 1, 0);
+    }
+    
+    private static int laske(int[] reitti, boolean[] mukana, int k, int pituus) {
+        if (k == n) {
+            return pituus + etaisyys[reitti[n - 1]][0];
+        }
+        int paras = Integer.MAX_VALUE;
+        for (int i = 1; i < n; i++) {
+            if (!mukana[i]) {
+                reitti[k] = i;
+                mukana[i] = true;
+                int arvo = laske(reitti, mukana, k + 1, pituus + etaisyys[reitti[k - 1]][i]);
+                paras = Math.min(paras, arvo);
+                mukana[i] = false;
+            }
+        }
+        return paras;
     }
 
     public static void main(String[] args) {
