@@ -8,12 +8,21 @@ public class Sudoku {
     static boolean[][] pysty;
     // 3x3 alueet, jotka sisältävät luvut 1,...,9
     static boolean[][] alue;
+    
+    // aluksi vapaat paikat
+    static int[] vapaaY;
+    static int[] vapaaX;
+    static int vapaidenLkm;
 
     public static void ratkaise(int[][] sudoku) {
         vaaka = new boolean[N][N+1];
         pysty = new boolean[N][N+1];
         alue = new boolean[N][N+1];
         
+        vapaaY = new int[N * N];
+        vapaaX = new int[N * N];
+        
+        int counter = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 int seuraava = sudoku[i][j];
@@ -21,9 +30,15 @@ public class Sudoku {
                     vaaka[i][seuraava] = true;
                     pysty[j][seuraava] = true;
                     alue[alueIndeksi(i, j)][seuraava] = true;
+                } else {
+                    vapaaY[counter] = i;
+                    vapaaX[counter] = j;
+                    counter++;
                 }
             }
         }
+        
+        vapaidenLkm = counter;
         
         
         System.out.println("vaaka");
@@ -32,35 +47,58 @@ public class Sudoku {
         tulosta(pysty);
         System.out.println("alue");
         tulosta(alue);
-        haku(sudoku, 0, 0);
+        haku(sudoku, 0);
       
     }
     
-    // talleta sudoku-taulukon vapaat indeksit aputaulukkoon
-    static void haku(int[][] sudoku, int rivi, int sarake) {
-        if (rivi == N) {
-            // ratkaisu löytyi
-            return;
-        } 
-        if (sarake == N) {
-            haku(sudoku, rivi + 1, 0); 
-        } else if(sudoku[rivi][sarake] != 0){ 
-            haku(sudoku, rivi, sarake + 1);
-        } else{
-            for (int i = 1; i <= N; i++) {
-                if (!vaaka[rivi][i] && !pysty[sarake][i] && !alue[alueIndeksi(rivi, sarake)][i]) {
-                    vaaka[rivi][i] = true;
-                    pysty[sarake][i] = true;
-                    alue[alueIndeksi(rivi, sarake)][i] = true;
-                    sudoku[rivi][sarake] = i;
-                    haku(sudoku, rivi, sarake + 1);
-                    vaaka[rivi][i] = false;
-                    pysty[sarake][i] = false;
-                    alue[alueIndeksi(rivi, sarake)][i] = false;
+    static boolean haku(int[][] sudoku, int k) {
+        int y = vapaaY[k];
+        int x = vapaaX[k];
+        if (k == vapaidenLkm) {
+            return true;
+        }
+        for (int i = 1; i <= N; i++) {
+            if (!vaaka[y][i] && !pysty[x][i] && !alue[alueIndeksi(y, x)][i]) {
+                vaaka[y][i] = true;
+                pysty[x][i] = true;
+                alue[alueIndeksi(y, x)][i] = true;
+                sudoku[y][x] = i;
+                if (haku(sudoku, k + 1)){
+                    return true;
                 }
+                //sudoku[y][x] = 0;
+                vaaka[y][i] = false;
+                pysty[x][i] = false;
+                alue[alueIndeksi(y, x)][i] = false;
             }
         }
+        return false;
     }
+    
+//    static void haku(int[][] sudoku, int rivi, int sarake) {
+//        if (rivi == N) {
+//            // ratkaisu löytyi
+//            return;
+//        } 
+//        if (sarake == N) {
+//            haku(sudoku, rivi + 1, 0); 
+//        } else if(sudoku[rivi][sarake] != 0){ 
+//            haku(sudoku, rivi, sarake + 1);
+//        } else{
+//            for (int i = 1; i <= N; i++) {
+//                if (!vaaka[rivi][i] && !pysty[sarake][i] && !alue[alueIndeksi(rivi, sarake)][i]) {
+//                    vaaka[rivi][i] = true;
+//                    pysty[sarake][i] = true;
+//                    alue[alueIndeksi(rivi, sarake)][i] = true;
+//                    sudoku[rivi][sarake] = i;
+//                    haku(sudoku, rivi, sarake + 1);
+//                    vaaka[rivi][i] = false;
+//                    pysty[sarake][i] = false;
+//                    alue[alueIndeksi(rivi, sarake)][i] = false;
+//                }
+//            }
+//        }
+//    }
     
     
     static void tulosta(boolean [][] a) {

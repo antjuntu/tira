@@ -42,12 +42,12 @@
 init:
 
 -deps-jar-init:
-   [delete] Deleting: C:\Users\antju\tira\hy-tira-k19\viikko08-Viikko08Tehtava4\build\built-jar.properties
+   [delete] Deleting: C:\Users\antju\tira\hy-tira-k19\viikko08-Viikko08Tehtava5\build\built-jar.properties
 
 deps-jar:
 
 -warn-already-built-jar:
-[propertyfile] Updating property file: C:\Users\antju\tira\hy-tira-k19\viikko08-Viikko08Tehtava4\build\built-jar.properties
+[propertyfile] Updating property file: C:\Users\antju\tira\hy-tira-k19\viikko08-Viikko08Tehtava5\build\built-jar.properties
 
 -check-automatic-build:
 
