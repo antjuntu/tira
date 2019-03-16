@@ -2,54 +2,47 @@ import java.util.*;
 
 public class Ravintola {
     
-    static final int MAX = 1001;
+    //Ostettavien siipien maksimimäärä
+    //static final int MAX = 1000;
+    static final int MAX = 12;
     static final int KOKONAIS_HINNAN_MAX = 1000000;
+    
+    // siipien yhteishinta
+    int[] hinnat;
     
     // paketti i: maara[i] ja hinta[i]
     int[] maara;
     int[] hinta;
-    // montako pakettia on saatavilla
-    int k;
     
-    int[] siipienMaara;
     
     public Ravintola() {
-        maara = new int[MAX];
-        hinta = new int[MAX];
-        siipienMaara = new int[MAX];
-        k = 0; 
-        //siipienMaara[0] = 0;
+        hinnat = new int[MAX + 1];
     }
     
     public void lisaaPaketti(int maara, int hinta) {
-        ++k;
-        this.maara[k] = maara;
-        this.hinta[k] = hinta;
-        //int maxSiipiaPaketilla = MAX / maara;
-        //for (int i = 0; i < maxSiipiaPaketilla; i++) {
-            for (int j = siipienMaara.length; j > 0; j--) {
-                if (siipienMaara[j] > 0) {
-                    if (siipienMaara[j + maara] > 0) {
-                        siipienMaara[j + maara] = Math.min(siipienMaara[j + maara], siipienMaara[j] + hinta);
-                    } else { // siipienMaara[j + maara] == 0
-                        siipienMaara[j + maara] = siipienMaara[j] + hinta;
-                    }
+        for (int x = MAX - maara; x > 0; x--) {
+            if (hinnat[x] > 0) {
+                if (hinnat[x + maara] > 0) {
+                    hinnat[x + maara] = Math.min(hinnat[x] + hinta, hinnat[x + maara]);
+                } else {
+                    hinnat[x + maara] = hinnat[x] + hinta;
                 }
-            //}
-            // käsittele siipienMaara[j] indeksi j = 0
-            if (siipienMaara[maara] > hinta) {
-                siipienMaara[maara] = hinta;
             }
         }
+        // Tapaus x = 0
+        if (hinnat[maara] > 0) {
+            hinnat[maara] = Math.min(hinnat[maara], hinta);
+        } else {
+            hinnat[maara] = hinta;
+        }
+        String s = Arrays.toString(hinnat);
+        System.out.println("maara: " + maara + ", hinta: " + hinta + " lisätty");
+        System.out.println(s);
+        System.out.println("-------------------------------");
     }
     
 
-    /**
-     * 
-     * @param maara 1 - 1000
-     * @return maara 1 - KOKONAIS_HINNAN_MAX
-     */
     public int halvinHinta(int maara) {
-        return hinta[maara];
+        return hinnat[maara];
     }
 }

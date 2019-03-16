@@ -9,7 +9,7 @@ public class Main {
         System.out.println(r.halvinHinta(5)); // 12
         System.out.println(r.halvinHinta(8)); // 19
         System.out.println(r.halvinHinta(12)); // 28
-        r.lisaaPaketti(10,20);
-        System.out.println(r.halvinHinta(12)); // 25
+//        r.lisaaPaketti(10,20);
+//        System.out.println(r.halvinHinta(12)); // 25
     }
 }
