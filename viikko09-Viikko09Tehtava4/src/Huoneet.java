@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class Huoneet {
     
@@ -6,7 +5,7 @@ public class Huoneet {
     static int nX;
     static boolean[][] vierailtu;    
     static int huoneet;
-    // Yhtenäiset komponentit
+    
     public int laske(int[][] kartta) {
         huoneet = 0;
         nY = kartta.length;
