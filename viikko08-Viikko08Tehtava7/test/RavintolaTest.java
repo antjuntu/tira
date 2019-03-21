@@ -38,7 +38,8 @@ public class RavintolaTest {
         }
     }
 
-    @Test(timeout = 1000)
+    @Test(timeout = 770)
+    //@Test(timeout = 1000)
     public void suuriTesti2() {
         Ravintola r = new Ravintola();
         for (int i = 0; i < 1000; i++) {
