@@ -52,7 +52,7 @@ public class HuoneetTest {
         fail("Metodisi antaa tuloksen "+tulos+", mutta oikea tulos on "+oikea);
     }
     
-    @Test(timeout = 1000)
+    @Test(timeout = 5000)
     public void pieniTesti() {
         int[][] kartta = {
             {1,1,1,1,1,1},
@@ -65,22 +65,22 @@ public class HuoneetTest {
         testi(kartta,3);
     }
 
-    @Test(timeout = 1000)
+    @Test(timeout = 5000)
     public void suuriTesti1() {
         testi(kartta1,1);
     }
 
-    @Test(timeout = 1000)
+    @Test(timeout = 5000)
     public void suuriTesti2() {
         testi(kartta2,0);
     }
 
-    @Test(timeout = 1000)
+    @Test(timeout = 5000)
     public void suuriTesti3() {
         testi(kartta3,3423);
     }
 
-    @Test(timeout = 1000)
+    @Test(timeout = 5000)
     public void suuriTesti4() {
         testi(kartta4,129228);
     }
