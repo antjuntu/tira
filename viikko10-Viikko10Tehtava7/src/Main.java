@@ -9,5 +9,6 @@ public class Main {
         t.lisaaYhteys("Helsinki", "Turku", 500);
         t.lisaaYhteys("Turku", "Vaasa", 700);
         System.out.println(t.reitinHinta("Helsinki","Vaasa")); // 850
+
     }
 }

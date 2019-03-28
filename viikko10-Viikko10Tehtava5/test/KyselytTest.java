@@ -85,12 +85,15 @@ public class KyselytTest {
         testi(k,1676023);
     }    
 
+    // ei toimi
     @Test(timeout = 1000)
     public void suuriTesti2() {
         Kyselyt k = new Kyselyt();
         testi(k,-9981);
     }    
 
+    // hidas
+    //@Test(timeout = 10000)
     @Test(timeout = 1000)
     public void suuriTesti3() {
         Kyselyt k = new Kyselyt();
@@ -104,7 +107,9 @@ public class KyselytTest {
         }
         testi(k,1682566);
     }    
-
+    
+    // hidas
+    //@Test(timeout = 10000)
     @Test(timeout = 1000)
     public void suuriTesti4() {
         Kyselyt k = new Kyselyt();
