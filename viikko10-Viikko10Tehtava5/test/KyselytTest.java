@@ -86,6 +86,7 @@ public class KyselytTest {
     }    
 
     // ei toimi
+    // ei lisää yhtään tietä
     @Test(timeout = 1000)
     public void suuriTesti2() {
         Kyselyt k = new Kyselyt();
@@ -93,8 +94,8 @@ public class KyselytTest {
     }    
 
     // hidas
-    //@Test(timeout = 10000)
-    @Test(timeout = 1000)
+    @Test(timeout = 3000)
+    //@Test(timeout = 1000)
     public void suuriTesti3() {
         Kyselyt k = new Kyselyt();
         int n = 500;
@@ -109,8 +110,8 @@ public class KyselytTest {
     }    
     
     // hidas
-    //@Test(timeout = 10000)
-    @Test(timeout = 1000)
+    @Test(timeout = 2000)
+    //@Test(timeout = 1000)
     public void suuriTesti4() {
         Kyselyt k = new Kyselyt();
         int n = 500;

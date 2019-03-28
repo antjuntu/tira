@@ -1,3 +1,5 @@
+
+
 //import java.util.*;
 //
 //public class Kyselyt {
@@ -33,6 +35,7 @@
 //
 //            if (!reititLaskettu) {
 //                laskeReitit();
+//                reititLaskettu = true;
 //            }
 //            
 ////        for (int i = 1; i <= n; i++) {
@@ -79,7 +82,7 @@
 //            }
 //        });
 //        floydWarshall();
-//        reititLaskettu = true;
+//        
 //    }
 //    
 //    static void floydWarshall() {
@@ -125,6 +128,7 @@ public class Kyselyt {
     PriorityQueue<X> keko;
     
     
+    
     public void lisaaTie(String alku, String loppu, int pituus) {
         if (!kaupungit.containsKey(alku)) {
             kaupungit.put(alku, ++n);
@@ -141,7 +145,10 @@ public class Kyselyt {
     }   
     
     public int reitinPituus(String alku, String loppu) {
-        
+        // HUOM!!!
+        if (alku.equals(loppu)) {
+            return 0;
+        }
         if (!kaupungit.containsKey(alku) || !kaupungit.containsKey(loppu)) {
             return -1;
         }

@@ -111,6 +111,7 @@ compile:
 -compile-test-depend:
 
 -do-compile-test:
+    [javac] Compiling 1 source file to C:\Users\antju\tira\hy-tira-k19\viikko10-Viikko10Tehtava5\build\test\classes
 
 -post-compile-test:
 

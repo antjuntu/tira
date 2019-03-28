@@ -13,5 +13,6 @@ public class Main {
         System.out.println(k.reitinPituus("Helsinki","Tampere")); // 180
         System.out.println(k.reitinPituus("Helsinki","Vaasa")); // 390
         System.out.println(k.reitinPituus("Turku","Vaasa")); // 380
+        System.out.println(k.reitinPituus("Helsinki","Helsinki")); // 0
     }
 }
