@@ -9,7 +9,7 @@ public class Main {
         k.lisaaTie("Turku","Vaasa",420);
         k.lisaaTie("Vaasa","Tampere",210);
         // omat 
-        k.lisaaTie("Tampere", "Vaasa", 2000);
+        //k.lisaaTie("Tampere", "Vaasa", 2000);
         System.out.println(k.reitinPituus("Helsinki","Tampere")); // 180
         System.out.println(k.reitinPituus("Helsinki","Vaasa")); // 390
         System.out.println(k.reitinPituus("Turku","Vaasa")); // 380

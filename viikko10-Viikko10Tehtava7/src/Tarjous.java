@@ -6,5 +6,6 @@ public class Tarjous {
     }
     
     public int reitinHinta(String alku, String loppu) {
+        return 0;
     }
 }
