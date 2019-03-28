@@ -16,7 +16,10 @@ public class Main {
         for (int i = 1; i <= N; i++) {
             vieruslista[i] = new ArrayList<>();
         }
-        alustaVieruslista(mista, minne, matka);
+        for (int i = 0; i < mista.length; i++) {
+            vieruslista[mista[i]].add(new Kaari(minne[i], matka[i]));
+            vieruslista[minne[i]].add(new Kaari(mista[i], matka[i]));
+        }
         
         etaisyys = new long[N + 1];
         for (int i = 1; i <= N; i++) {
@@ -54,20 +57,6 @@ public class Main {
                 }
             }
         }
-    }
-    
-    static void alustaVieruslista(int[] mista, int[] minne, long[] matka) {
-        for (int i = 0; i < mista.length; i++) {
-            vieruslista[mista[i]].add(new Kaari(minne[i], matka[i]));
-            vieruslista[minne[i]].add(new Kaari(mista[i], matka[i]));
-        }
-//        for (int j = 1; j <= N; j++) {
-//            System.out.println("Lähtösolmu: " + j);
-//            for (Kaari kaari : vieruslista[j]) {
-//                System.out.println(kaari.loppu + ", " + kaari.paino);
-//            }
-//            System.out.println("-----------------");
-//        }
     }
     
     static class Kaari {
