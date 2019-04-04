@@ -65,7 +65,12 @@ public class Peli {
         d[alku][loppu] = 1;
     }
     
-    
+    // IDEA
+    // Käsittele solmut topologisessa järjestyksessä 
+    // lähtien solmun alku komponentista päättyen komponenttiin jossa solmu loppu sijaitsee
+    // tee pisinReitti(x) = pisin reitti alkusolmusta solmuun x
+    // pisinReitti(alkusolmu) = alkusolmun komponentin solmumäärä
+    // Komponenttien numerojärjestys kertoo suoraan topologisen järjestyksen
     public int parasTulos(int alku, int loppu) {
         SCC();
 //        for (int i = 1; i <= 5; i++) {
