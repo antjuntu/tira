@@ -133,7 +133,7 @@ public class Peli {
         System.out.println("Komponentit: ");
         for (int i = 1; i <= N ; i++) {
             if (solmu[i])
-                System.out.println( i + ": " + komponentti[i]);
+            System.out.println( i + ": " + komponentti[i]);
         }
 
         // huoneita kmponenteissa

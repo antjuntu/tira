@@ -2,6 +2,34 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        
+        // oma
+        Peli p2 = new Peli();
+        p2.lisaaYhteys(1,2);
+        p2.lisaaYhteys(2,3);
+        p2.lisaaYhteys(3,1);
+        
+        p2.lisaaYhteys(2,5);
+        p2.lisaaYhteys(5,6);
+        p2.lisaaYhteys(6,7);
+        
+        p2.lisaaYhteys(7,8);
+        p2.lisaaYhteys(8,9);
+        p2.lisaaYhteys(9,10);
+        p2.lisaaYhteys(10,7);
+        
+        p2.lisaaYhteys(11,12);
+        p2.lisaaYhteys(12,11);
+        
+        p2.lisaaYhteys(1,13);
+        p2.lisaaYhteys(13,14);
+        p2.lisaaYhteys(14,15);
+        p2.lisaaYhteys(15,16);
+        p2.lisaaYhteys(16,13);
+        p2.lisaaYhteys(14,5);
+        
+        System.out.println(p2.parasTulos(1,16)); // -1
+        
 //        Peli p1 = new Peli();
 //        p1.lisaaYhteys(1,2);
 //        p1.lisaaYhteys(2,3);
@@ -51,10 +79,6 @@ public class Main {
 //        int tulos = p.parasTulos(1,n);//105
 //        System.out.println(tulos);
 
-        // oma
-        Peli p2 = new Peli();
-        p2.lisaaYhteys(1,2);
-        p2.lisaaYhteys(2,1);
-        System.out.println(p2.parasTulos(1,2)); // -1
+        
     }
 }
