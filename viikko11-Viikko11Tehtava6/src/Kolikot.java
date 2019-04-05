@@ -3,98 +3,81 @@ import java.util.*;
 public class Kolikot {
     
     static final int N = 500;
-    static final int VALKOINEN = 0;
-    static final int HARMAA = 1;
-    static final int MUSTA = 2;
     
-    boolean[] huone;
-    int vari[];
     boolean[] kasitelty;
-    int[] kolikoitaHuoneissa;
+    int[] kolikoitaHuoneessa;
+    int[] yhteensa;
+    
+    int[] seuraaja;
     
     ArrayList<Integer>[] vieruslista;
-    ArrayList<Integer>[] vieruslistaTranspoosi;
-    
-    // Kosarajun algoritmiin
-    ArrayDeque<Integer> lista;
-    
-    // Komponenttiverkko
-    int nC = 0;
-    int[] komponentti;
-    int[] kolikoitaKomponenteissa;
-    
-    ArrayList<Integer> vieruslistaC;
     
     public Kolikot() {
-        huone = new boolean[N + 1];
-        vari = new int[N + 1];
+        
         kasitelty = new boolean[N + 1];
-        kolikoitaHuoneissa = new int[N + 1];
+        kolikoitaHuoneessa = new int[N + 1];
+        yhteensa = new int[N + 1];
         
         vieruslista = new ArrayList[N + 1];
-        vieruslistaTranspoosi = new ArrayList[N + 1];
         for (int i = 1; i <= N; i++) {
             vieruslista[i] = new ArrayList<>();
-            vieruslistaTranspoosi[i] = new ArrayList<>();
         }
         
-        lista = new ArrayDeque<>();
+        seuraaja = new int[N + 1];
     }
     
     public void lisaaYhteys(int alku, int loppu) {
-        huone[alku] = true;
-        huone[loppu] = true;
+        
         vieruslista[alku].add(loppu);
-        vieruslistaTranspoosi[loppu].add(alku);
     }
     
     public void lisaaKolikko(int huone) {
-        kolikoitaHuoneissa[huone]++;
+        kolikoitaHuoneessa[huone]++;
     }
     
     
     public int parasTulos(int alku, int loppu) {
         
-        kosaraju();
+
+        syvyyshaku(alku);
+     
+        if (alku == loppu) {
+            return kolikoitaHuoneessa[alku];
+        }
+        if (!kasitelty[loppu]) {
+            return -1;
+        }
         
-        return 0;
-    }
-    
-    void kosaraju() {
-        for (int i = 1; i <= N; i++) {
-            if (huone[i] && vari[i] == VALKOINEN) {
-                syvyyshaku1(i);
+        boolean loppuLöytyiPolulta = false;
+        int x = alku;
+        while (x != -1) {
+            x = seuraaja[x];
+            if (x == loppu) {
+                loppuLöytyiPolulta = true;
             }
         }
-        System.out.println("Lista:");
-        for (Integer i : lista) {
-            if (huone[i]) {
-                System.out.print(i + ", ");
-            }
+        if (!loppuLöytyiPolulta) {
+            return 0;
         }
-        System.out.println();
+        
+        return yhteensa[alku];
     }
-    
-    void syvyyshaku1(int u) {
-        vari[u] = HARMAA;
+   
+    void syvyyshaku(int u) {
+        kasitelty[u] = true;
+        yhteensa[u] = kolikoitaHuoneessa[u];
+        seuraaja[u] = -1;
+        
         for (Integer v : vieruslista[u]) {
-            if (!huone[v]) {
-                continue;
+            if (!kasitelty[v]) {
+                syvyyshaku(v);
             }
-//            if (vari[v] == HARMAA) {
-//                // sykli löytyi
-//            }
-            if (vari[v] == VALKOINEN) {
-                syvyyshaku1(v);
+            int uusi = kolikoitaHuoneessa[u] + yhteensa[v];
+            if (uusi > yhteensa[u]) {
+                yhteensa[u] = uusi;
+                seuraaja[u] = v;
             }
         }
-        vari[u] = MUSTA;
-        lista.addFirst(u);
     }
-    
-    void syvyyshaku2(int u) {
-        
-    }
-    
     
 }

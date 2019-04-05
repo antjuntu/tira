@@ -38,6 +38,7 @@ public class KolikotTest {
         fail("Luokkasi toimii väärin pienessä testissä");
     }    
 
+    // ei toimi
     @Test(timeout = 1000)
     public void pieniTesti4() {
         Kolikot k = new Kolikot();
@@ -76,6 +77,7 @@ public class KolikotTest {
         fail("Luokkasi toimii väärin suuressa testissä");
     }    
 
+    // ei toimi
     @Test(timeout = 1000)
     public void suuriTesti2() {
         Kolikot k = new Kolikot();
