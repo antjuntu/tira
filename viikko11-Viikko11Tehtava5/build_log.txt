@@ -99,6 +99,9 @@ deps-jar:
 -compile-depend:
 
 -do-compile:
+    [javac] Compiling 1 source file to C:\Users\antju\tira\hy-tira-k19\viikko11-Viikko11Tehtava5\build\classes
+    [javac] Note: C:\Users\antju\tira\hy-tira-k19\viikko11-Viikko11Tehtava5\src\Peli.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
 
 -post-compile:
 

@@ -40,7 +40,7 @@ public class Main {
 //        p2.lisaaYhteys(1,2);
 //        p2.lisaaYhteys(3,4);
 //        System.out.println(p2.parasTulos(1,4)); // -1
-
+//
 //        Peli p = new Peli();
 //        p.lisaaYhteys(1,2);
 //        p.lisaaYhteys(2,5);
