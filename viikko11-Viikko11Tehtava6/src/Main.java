@@ -2,15 +2,15 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Kolikot k = new Kolikot();
-        k.lisaaYhteys(1,2);
-        k.lisaaYhteys(2,4);
-        k.lisaaYhteys(1,3);
-        k.lisaaYhteys(3,4);
-        k.lisaaKolikko(2);
-        k.lisaaKolikko(3);
-        k.lisaaKolikko(3);
-        System.out.println(k.parasTulos(1,4)); // 2
+//        Kolikot k = new Kolikot();
+//        k.lisaaYhteys(1,2);
+//        k.lisaaYhteys(2,4);
+//        k.lisaaYhteys(1,3);
+//        k.lisaaYhteys(3,4);
+//        k.lisaaKolikko(2);
+//        k.lisaaKolikko(3);
+//        k.lisaaKolikko(3);
+//        System.out.println(k.parasTulos(1,4)); // 2
         
         // oma
         Kolikot k2 = new Kolikot();
@@ -36,5 +36,6 @@ public class Main {
         k2.lisaaYhteys(15,16);
         k2.lisaaYhteys(16,13);
         k2.lisaaYhteys(14,5);
+        System.out.println(k2.parasTulos(1,16));
     }
 }
