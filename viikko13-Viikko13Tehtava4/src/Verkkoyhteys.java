@@ -6,7 +6,6 @@ public class Verkkoyhteys {
     static final int V = 100;
     static final int MAX_NOPEUS = 100;
     
-    //int maxVirtaus;
     int[][] d;
     
     boolean[] vierailtu;
@@ -20,12 +19,7 @@ public class Verkkoyhteys {
     
     public int laskeNopeus(int alku, int loppu) {
         int maxVirtaus = 0;
-//        for (int i = 1; i <= 5; i++) {
-//            for (int j = 1; j <= 5; j++) {
-//                System.out.print(d[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
+
         boolean uusiPolkuLoytyi = false;
    
         do {
@@ -64,7 +58,7 @@ public class Verkkoyhteys {
                 }
                 
                 int minPituus = MAX_NOPEUS + 1;
-                System.out.println(jono1);
+                //System.out.println(jono1);
                 s = jono1.removeFirst();
                 while (!jono1.isEmpty()) {
                     int x = jono1.removeFirst();
@@ -74,24 +68,19 @@ public class Verkkoyhteys {
                     s = x;
                 }
                 
-                System.out.println("minPituus: " + minPituus);
+                //System.out.println("minPituus: " + minPituus);
                 maxVirtaus += minPituus;
+                
                 ///////////////////////////////////
-                //System.out.println(jono2);
+              
                 s = jono2.removeFirst();
                 while (!jono2.isEmpty()) {
                     int x = jono2.removeFirst();
-                    System.out.println("s: " + s + ", x: " + x);
+                    //System.out.println("s: " + s + ", x: " + x);
                     d[s][x] = d[s][x] - minPituus;
                     d[x][s] = minPituus;
                     s = x;
                 }
-//                for (int i = 1; i <= 5; i++) {
-//                    for (int j = 1; j <= 5; j++) {
-//                        System.out.print(d[i][j] + " ");
-//                    }
-//                    System.out.println();
-//                }
             }
         } while (uusiPolkuLoytyi);
         
@@ -99,26 +88,10 @@ public class Verkkoyhteys {
     }
     
     public Verkkoyhteys() {
-//        vieruslista = new ArrayList[V + 1];
-//        for (int i = 1; i <= V; i++) {
-//            vieruslista[i] = new ArrayList<>();
-//        }
         d = new int[V + 1][V + 1];
         //maxVirtaus = 0;
         vierailtu = new boolean[V + 1];
         edeltaja = new int[V + 1];
     }
-    
-    class Kaari {
-        int alku;
-        int loppu;
-        int nopeus;
-
-        public Kaari(int alku, int loppu, int nopeus) {
-            this.alku = alku;
-            this.loppu = loppu;
-            this.nopeus = nopeus;
-        }
-           
-    }
+   
 }
