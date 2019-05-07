@@ -14,15 +14,24 @@ public class Main {
 //        System.out.println(v.laskeNopeus(1,5)); // 7
 
         Verkkoyhteys v = new Verkkoyhteys();
-        v.lisaaYhteys(1,2,1);
-        v.lisaaYhteys(2,3,1);
-        v.lisaaYhteys(3,6,1);
-        v.lisaaYhteys(1,5,1);
-        v.lisaaYhteys(5,3,1);
-        v.lisaaYhteys(2,4,1);
-        v.lisaaYhteys(4,6,1);
-        //int oikea = 2;
-        int tulos = v.laskeNopeus(1,6);
+        v.lisaaYhteys(1,2,7);
+        v.lisaaYhteys(1,5,15);
+        
+        v.lisaaYhteys(2,3,3);
+        v.lisaaYhteys(2,4,2);
+        
+        v.lisaaYhteys(3,7,8);
+        
+        v.lisaaYhteys(4,3,4);
+        v.lisaaYhteys(4,7,3);
+        
+        v.lisaaYhteys(5,4,3);
+        v.lisaaYhteys(5,6,9);
+        
+        v.lisaaYhteys(6,4,5);
+        v.lisaaYhteys(6,7,5);
+        //
+        int tulos = v.laskeNopeus(1,7);
         System.out.println(tulos);
     }
 }

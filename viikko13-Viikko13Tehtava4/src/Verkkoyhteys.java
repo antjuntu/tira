@@ -7,17 +7,27 @@ public class Verkkoyhteys {
     static final int MAX_NOPEUS = 100;
     
     int[][] d;
+    int[][] dAlku;
     
     boolean[] vierailtu;
     ArrayDeque<Integer> jono;
     int[] edeltaja;
     
     public void lisaaYhteys(int alku, int loppu, int nopeus) {
-
+        dAlku[alku][loppu] += nopeus;
         d[alku][loppu] += nopeus;
     }
     
     public int laskeNopeus(int alku, int loppu) {
+        
+        System.out.println("alku:");
+        for (int i = 1; i <= 7; i++) {
+            for (int j = 1; j <= 7; j++) {
+                System.out.print(dAlku[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
         int maxVirtaus = 0;
 
         boolean uusiPolkuLoytyi = false;
@@ -58,7 +68,7 @@ public class Verkkoyhteys {
                 }
                 
                 int minPituus = MAX_NOPEUS + 1;
-                //System.out.println(jono1);
+                System.out.println(jono1);
                 s = jono1.removeFirst();
                 while (!jono1.isEmpty()) {
                     int x = jono1.removeFirst();
@@ -68,7 +78,8 @@ public class Verkkoyhteys {
                     s = x;
                 }
                 
-                //System.out.println("minPituus: " + minPituus);
+                System.out.println("minPituus: " + minPituus);
+                System.out.println("------------------------------------------------");
                 maxVirtaus += minPituus;
                 
                 ///////////////////////////////////
@@ -84,11 +95,52 @@ public class Verkkoyhteys {
             }
         } while (uusiPolkuLoytyi);
         
+        System.out.println("loppu:");
+        for (int i = 1; i <= 7; i++) {
+            for (int j = 1; j <= 7; j++) {
+                System.out.print(d[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        System.out.println("erotus:");
+        for (int i = 1; i <= 7; i++) {
+            for (int j = 1; j <= 7; j++) {
+                if (i == j) continue;
+                if (dAlku[i][j] > 0 && d[i][j] == 0) {
+                    System.out.println(i + "," + j);
+                }
+            }
+            System.out.println();
+        }
+        
+        System.out.println("minimileikkaus");
+        // minimileikkaus
+        for (int i = 1; i <= V; i++) {
+            vierailtu[i] = false;
+        }
+        syvyyshaku(1);
+        System.out.println();
+        
         return maxVirtaus;
     }
     
+    void syvyyshaku(int u) {
+        vierailtu[u] = true;
+        System.out.print(u + " ");
+        for (int v = 1; v <= V; v++) {
+            if (!vierailtu[v] && d[u][v] > 0) {
+                syvyyshaku(v);
+            }
+        }
+        
+    }
+    
+    
+    
     public Verkkoyhteys() {
         d = new int[V + 1][V + 1];
+        dAlku = new int[V + 1][V + 1];
         //maxVirtaus = 0;
         vierailtu = new boolean[V + 1];
         edeltaja = new int[V + 1];
